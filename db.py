@@ -58,10 +58,10 @@ class BotDB:
 
     def find_anketi(self, user_id, interest, city, age):
         gender: str = ""
-        if interest == "парни":
-            gender = "парень"
-        if interest == "девушки":
-            gender = "девушка"
+        if interest == "ប្រុស":
+            gender = "ប្រុស"
+        if interest == "ស្រី":
+            gender = "ស្រី"
 
         result = self.cursor.execute("SELECT * FROM `anketi` WHERE `users_id` != ? AND `gender` = ? AND `city` = ? AND `age` BETWEEN ? AND ?", (self.get_user_id(user_id), gender, city.title(), int(age) - 1, int(age) + 1))
 
